@@ -1,0 +1,196 @@
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Charts JS</title>
+    <script src="{% static 'js/chatjs.js'%}"></script>
+    <link rel =stylesheet  href = "{% static 'css/main.css'%}">
+    <style>
+        .header {
+            background-color: #696969;
+            padding: 20px;
+            text-align: center;
+        }
+
+        table.scrolldown {
+            width: 50%;
+            font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+            /* border-collapse: collapse; */
+            border-spacing: 0;
+            border: 2px solid black;
+        }
+
+        /* To display the block as level element */
+        table.scrolldown tbody, table.scrolldown thead {
+
+            display: block;
+        }
+
+
+        thead tr th {
+            height: 40px;
+            line-height: 40px;
+            background-color: #4CAF50;
+            color: white;
+        }
+
+
+        table.scrolldown tbody {
+            height: 300px;
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+        tbody {
+            border-top: 2px solid black;
+        }
+        tbody tr:nth-child(even){background-color: #f2f2f2;}
+
+        tbody tr:hover {background-color: #ddd;}
+
+        tbody td, thead th {
+            width : 400px;
+            border-right: 2px solid black;
+        }
+
+        td {
+            text-align:center;
+        }
+
+
+
+
+
+
+
+        #customers1 {
+            font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 20%;
+        }
+
+        #customers1 td, #customers1 th {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        #customers1 tr:nth-child(even){background-color: #f2f2f2;}
+
+        #customers1 tr:hover {background-color: #ddd;}
+
+        #customers1 th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: #4CAF50;
+            color: white;
+        }
+
+
+
+        body {
+            background-color: light gray;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h1> complete list</h1>
+    <h2>Affected Countries/States</h2>
+</div>
+<div>
+    <table class="scrolldown" style="float: left">
+        <thead>
+        <tr>
+            <th>countries</th>
+            <th> Cases</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for i in country_set %}
+        <tr>
+            <td>{{i.0}}</td>
+            <td>{{i.1}}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+<div>
+    <table class="scrolldown">
+        <thead>
+        <tr>
+            <th>countries</th>
+            <th>Deaths</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for k,l in country_death %}
+        <tr>
+            <td>{{k}}</td>
+            <td>{{l}}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+<div>
+    <table class="scrolldown" style="float: left">
+        <thead>
+        <tr>
+            <th>states</th>
+            <th>cases</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for k,l in state_set %}
+        <tr>
+            <td>{{k}}</td>
+            <td>{{l}}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+<div>
+    <table class="scrolldown">
+        <thead>
+        <tr>
+            <th>states</th>
+            <th>Deaths</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for k,l in state_death %}
+        <tr>
+            <td>{{k}}</td>
+            <td>{{l}}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+<div>
+    <table class="scrolldown" style="float: left">
+        <thead>
+        <tr>
+            <th>country</th>
+            <th>percentage</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for k,l in perc %}
+        <tr>
+            <td>{{k}}</td>
+            <td>{{l}}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+
+</body>
+</html>

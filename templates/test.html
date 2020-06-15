@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>its working</title>
+</head>
+<body>
+
+<div style="clear: both">
+
+
+<h2 style="float: left">Total Cases: {{ webdata.4.0.0 }}</h2><br />
+
+<h2 style="float: left">Total Deaths: {{ webdata.4.0.1 }}</h2><br />
+
+</div>
+
+<div>
+    <table style="float: left">
+        <tr>
+            <td>Dates</td>
+            <td>Confirmed Cases</td>
+        </tr>
+        {% for dates, counts in webdata.5 %}
+        <tr>
+            <td>{{dates}}</td>
+            <td>{{counts}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <table style="float: left">
+        <tr>
+            <td>States</td>
+            <td>Deaths</td>
+        </tr>
+        {% for state, counts in webdata.3 %}
+        <tr>
+            <td>{{state}}</td>
+            <td>{{counts}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>>
+</body>
+</html>

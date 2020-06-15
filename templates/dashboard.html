@@ -1,0 +1,16 @@
+{% load static %}
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{% static 'cssa/main.css' %}">
+    <link rel="stylesheet" href="{% static 'cssa/nvd3.css' %}">
+    <script type="text/javascript" src = "{% static 'js/d3.js' %}"></script>
+    <script type="text/javascript" src = "{% static 'js/nv.d3.min.js' %}"></script>
+
+</head>
+<body>
+<script>
+var data1 = {{ webdata.5.0 }}
+var data2 = {{ webdata.5.1 }}
+</script>
+</body>
+</html>
